@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>使用教程</title>
+<link rel="stylesheet" href="css/jquery.fullPage.css">
+<style>
+.section { text-align: center; font: 50px "Microsoft Yahei"; color: #fff;}
+.section2 p { position: relative; left: -120%;}
+.section3 p { position: relative; bottom: -120%;}
+.section4 p { display: none;}
+</style>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery-ui-1.10.3.min.js"></script>
+<script src="js/jquery.fullPage.min.js"></script>
+<script>
+$(document).ready(function() {
+	$.fn.fullpage({
+		slidesColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90', '#ef820'],
+		anchors: ['page1', 'page2', 'page3', 'page4', 'page5'],
+		afterLoad: function(anchorLink, index){
+			if(index == 2){
+				$('.section2').find('p').delay(500).animate({
+					left: '0'
+				}, 1500, 'easeOutExpo');
+			}
+			if(index == 3){
+				$('.section3').find('p').delay(500).animate({
+					bottom: '0'
+				}, 1500, 'easeOutExpo');
+			}
+			if(index == 4){
+				$('.section4').find('p').fadeIn(2000);
+			}
+		},
+		onLeave: function(index, direction){
+			if(index == '2'){
+				$('.section2').find('p').delay(500).animate({
+					left: '-120%'
+				}, 1500, 'easeOutExpo');
+			}
+			if(index == '3'){
+				$('.section3').find('p').delay(500).animate({
+					bottom: '-120%'
+				}, 1500, 'easeOutExpo');
+			}
+			if(index == '4'){
+				$('.section4').find('p').fadeOut(2000);
+			}
+		}
+	});
+});
+</script>
+</head>
+
+<body>
+<div class="section section1">
+	<h3>第一步</h3>
+	<p>在主流视频网站或其App上找到自己要观看的电影。</p>
+</div>
+<div class="section section2">
+	<h3>第二步</h3>
+	<p>在浏览器地址栏或App上复制该电影的链接回到解析网站。</p>
+</div>
+<div class="section section3">
+	<h3>第三步</h3>
+	<p>在播放地址栏粘贴刚复制的视频链接。</p>
+</div>
+<div class="section section4">
+	<h3>第四步</h3>
+	<p>点击”点我播放“按钮一键解析播放即可观看。</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
